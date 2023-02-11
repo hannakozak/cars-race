@@ -1,0 +1,26 @@
+
+table {
+    border: 1px solid var(--light-blue);
+    margin: 4rem auto;
+    width: 90%;
+    padding: 1rem;
+}
+
+table th {
+    padding: 2rem;
+    color: var(--light-blue)
+}
+table td {
+    height: 10rem;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+table tr {
+    border: 1px solid var(--light-blue);
+}
+
+.asc-wins-button, .desc-wins-button, .asc-time-button, .desc-time-button {
+padding: 0.5rem;
+border: none;
+}

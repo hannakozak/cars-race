@@ -1,0 +1,100 @@
+button {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    border: 1px solid var(--white);
+    cursor: pointer;
+}
+
+button:disabled {
+    border: 1px solid var(--dark-gray);
+    color: var(--dark-gray);
+}
+
+.car-image-wrapper {
+   display: flex;
+   flex-direction: row;
+   height: 4rem;
+   margin: 1rem 0;
+   padding-bottom: 1rem;
+   border-bottom: 2px dashed var(--light-blue);
+}
+
+.car {
+    position: absolute;
+    height: 3rem;
+    left: 150px;
+    align-self: flex-end;
+  }
+.car-image-wrapper button {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    border: 1px solid var(--white);
+    width: 3rem;
+    height: 3rem;
+    margin-right: 0.5rem;
+    align-self: flex-end;
+}
+
+.car-image-wrapper button:disabled {
+    border: 1px solid var(--dark-gray);
+    color: var(--dark-gray);
+}
+
+
+.flag{
+    margin-right: 5rem;
+    margin-left: auto;
+}
+
+.actions-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.actions-wrapper button {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    border: 1px solid var(--white);
+    padding: 5px 10px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem;
+}
+
+.action-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 4rem 0;
+}
+
+.action-form-wrapper button {
+    padding: 3px 10px;
+    min-width: 124px;
+}
+
+.action-form-wrapper div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.pagination-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.pagination-wrapper button {
+    width: 4rem;
+    height: 4rem;
+}

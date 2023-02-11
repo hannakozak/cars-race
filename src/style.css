@@ -1,0 +1,78 @@
+:root {
+  --light-blue: #00FFFF;
+  --dark-blue: #0A192F;
+  --white: #ffffff;
+  --dark-gray: #303030;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Raleway',sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  background-color: var(--dark-blue);
+  color: var(--white);
+  margin: 0 auto;
+  padding: 4rem;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+section {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.show-winner {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  letter-spacing: 5px;
+  color: var(--light-blue);
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+button {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  border: 1px solid var(--white);
+  cursor: pointer;
+}
+
+button:disabled {
+  border: 1px solid var(--dark-gray);
+  color: var(--dark-gray);
+}

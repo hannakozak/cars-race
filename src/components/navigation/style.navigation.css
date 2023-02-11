@@ -1,0 +1,20 @@
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style:none;
+    gap: 1rem;
+}
+
+ul li {
+    border: 1px solid var(--white);
+    width: 100px;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.active {
+    color: var(--light-blue);
+    border: 1px solid var(--light-blue);
+}
