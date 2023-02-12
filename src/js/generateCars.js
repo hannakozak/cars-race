@@ -25,10 +25,10 @@ const generateCars = async () => {
     const carName = generateRandomCarName();
     const carColor = generateRandomCarColor();
     const generatedCar = { name: carName, color: carColor };
-    carListPromises.push(addCar(generatedCar));
+    carListPromises.concat(addCar(generatedCar));
   }
   await Promise.all(carListPromises);
-  window.location.reload();
+  setTimeout(window.location.reload(), 0);
 };
 
 export const renderGeneratedCars = async () => {

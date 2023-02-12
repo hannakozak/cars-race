@@ -1,8 +1,8 @@
 import { WINNERS_PER_PAGE } from '../assets/constants';
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = 'https://cars-race.vercel.app';
 
-const winners = `${baseUrl}/winners/`;
+const winners = `${baseUrl}/winners`;
 
 export const state = {
   winners: [],

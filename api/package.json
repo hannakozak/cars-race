@@ -10,5 +10,8 @@
   "license": "MIT",
   "devDependencies": {
     "json-server": "^0.16.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
 }

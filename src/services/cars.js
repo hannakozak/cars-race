@@ -1,8 +1,8 @@
 import { CARS_PER_PAGE } from '../assets/constants';
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = 'https://cars-race.vercel.app';
 
-const cars = `${baseUrl}/garage/`;
+const cars = `${baseUrl}/garage`;
 
 export const carsState = {
   cars: [], carsCount: 0, carsByPage: [],

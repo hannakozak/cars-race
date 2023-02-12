@@ -2,6 +2,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable import/no-extraneous-dependencies */
 const jsonServer = require('json-server');
+const cors = require('cors');
 
 const db = {
   garage: [
@@ -39,6 +40,8 @@ const server = jsonServer.create();
 const router = jsonServer.router(db);
 const middlewares = jsonServer.defaults();
 
+server.use(cors({ origin: true, credentials: true }));
+
 const PORT = 3000;
 
 const state = { velocity: {}, blocked: {} };
@@ -50,6 +53,7 @@ server.patch('/engine', (req, res) => {
 
   if (!id || !status || !/^(started)|(stopped)|(drive)$/.test(status)) {
     return res
+      .header('Access-Control-Allow-Origin', '*')
       .status(400)
       .send(
         'Wrong parameters: "id" should be any positive number, "status" should be "started", "stopped" or "drive"',

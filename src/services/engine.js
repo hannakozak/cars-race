@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3000';
+const baseUrl = 'https://cars-race.vercel.app';
 const engine = `${baseUrl}/engine/`;
 
 export const handleEngine = async (id, status) => {
