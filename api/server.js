@@ -40,7 +40,13 @@ const server = jsonServer.create();
 const router = jsonServer.router(db);
 const middlewares = jsonServer.defaults();
 
-server.use(cors({ origin: true, credentials: true }));
+server.use(
+  cors({
+    origin: "https://cars-race-front.vercel.app/",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
 
 const PORT = 3000;
 
@@ -56,7 +62,7 @@ server.patch("/engine", (req, res) => {
       .header("Access-Control-Allow-Origin", "*")
       .status(400)
       .send(
-        "Wrong parameters: \"id\" should be any positive number, \"status\" should be \"started\", \"stopped\" or \"drive\"",
+        'Wrong parameters: "id" should be any positive number, "status" should be "started", "stopped" or "drive"'
       );
   }
 
@@ -74,14 +80,14 @@ server.patch("/engine", (req, res) => {
       return res
         .status(404)
         .send(
-          "Engine parameters for car with such id was not found in the garage. Have you tried to set engine status to \"started\" before?",
+          'Engine parameters for car with such id was not found in the garage. Have you tried to set engine status to "started" before?'
         );
     }
     if (state.blocked[id]) {
       return res
         .status(429)
         .send(
-          "Drive already in progress. You can't run drive for the same car twice while it's not stopped.",
+          "Drive already in progress. You can't run drive for the same car twice while it's not stopped."
         );
     }
 
@@ -111,7 +117,8 @@ server.patch("/engine", (req, res) => {
   } else {
     const x = req.query.speed ? +req.query.speed : (Math.random() * 2000) ^ 0;
 
-    const velocity = status === "started" ? Math.max(50, (Math.random() * 200) ^ 0) : 0;
+    const velocity =
+      status === "started" ? Math.max(50, (Math.random() * 200) ^ 0) : 0;
 
     if (velocity) {
       state.velocity[id] = velocity;
@@ -121,11 +128,12 @@ server.patch("/engine", (req, res) => {
     }
 
     setTimeout(
-      () => res
-        .header("Content-Type", "application/json")
-        .status(200)
-        .send(JSON.stringify({ velocity, distance })),
-      x,
+      () =>
+        res
+          .header("Content-Type", "application/json")
+          .status(200)
+          .send(JSON.stringify({ velocity, distance })),
+      x
     );
   }
 });
