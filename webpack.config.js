@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const ESLintPlugin = require("eslint-webpack-plugin");
 
 const path = require("path");
 
@@ -42,7 +41,5 @@ module.exports = {
       filename: "./index.html",
     }),
     new CleanWebpackPlugin(),
-    new ESLintPlugin(),
   ],
-
 };
