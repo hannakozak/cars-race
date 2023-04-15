@@ -42,7 +42,7 @@ const middlewares = jsonServer.defaults();
 
 server.use(
   cors({
-    origin: "https://cars-race-front.vercel.app/",
+    origin: "https://cars-race-front.vercel.app",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })
