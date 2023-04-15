@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable no-unused-expressions */
 import { carsState } from "../services/cars";
 import { getWinnersByPage } from "../services/winners";
@@ -24,7 +25,11 @@ export const toggleWins = async () => {
     const ascButton = document.querySelector(".asc-wins-button");
     const descButton = document.querySelector(".desc-wins-button");
     saveDataToStorage("sortBy", "wins");
-    if (winsButton.length !== null && ascButton.length !== null && descButton.length !== null) {
+    if (
+      winsButton.length !== null &&
+      ascButton.length !== null &&
+      descButton.length !== null
+    ) {
       clearInterval(waitForElement);
       ascButton.addEventListener("click", () => {
         saveDataToStorage("sortOrder", "ASC");
@@ -44,8 +49,11 @@ export const toggleByBestTime = async () => {
     const ascTimeButton = document.querySelector(".asc-time-button");
     const descTimeButton = document.querySelector(".desc-time-button");
     saveDataToStorage("sortBy", "time");
-    if (sortByTime.length !== null && ascTimeButton.length !== null
-      && descTimeButton.length !== null) {
+    if (
+      sortByTime.length !== null &&
+      ascTimeButton.length !== null &&
+      descTimeButton.length !== null
+    ) {
       clearInterval(waitForElement);
       ascTimeButton.addEventListener("click", () => {
         saveDataToStorage("sortOrder", "ASC");

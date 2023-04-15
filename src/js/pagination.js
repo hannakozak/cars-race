@@ -13,7 +13,13 @@ export const nextPage = (data, dataPerPage, currentPage, name, next) => {
   });
 };
 
-export const previousPage = (data, dataPerPage, currentPage, name, previous) => {
+export const previousPage = (
+  data,
+  dataPerPage,
+  currentPage,
+  name,
+  previous
+) => {
   const previousButton = document.querySelector(`.${previous}`);
 
   if (data.items.length > dataPerPage && currentPage > 1) {
@@ -25,7 +31,14 @@ export const previousPage = (data, dataPerPage, currentPage, name, previous) => 
   });
 };
 
-export const updatePagination = (data, dataPerPage, currentPage, name, next, previous) => {
+export const updatePagination = (
+  data,
+  dataPerPage,
+  currentPage,
+  name,
+  next,
+  previous
+) => {
   nextPage(data, dataPerPage, currentPage, name, next);
   previousPage(data, dataPerPage, currentPage, name, previous);
 };

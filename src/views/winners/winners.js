@@ -109,6 +109,10 @@ export const winnersView = (currentWinnersPage) => {
   winnersViewWrapper.appendChild(tableWrapper);
 
   renderWinnersList(cars, winners);
-  renderPagination(winnersViewWrapper, "previousWinnersButton", "nextWinnersButton");
+  renderPagination(
+    winnersViewWrapper,
+    "previousWinnersButton",
+    "nextWinnersButton"
+  );
   return winnersViewWrapper;
 };

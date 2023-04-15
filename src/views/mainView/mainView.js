@@ -41,8 +41,22 @@ export const renderMainView = async () => {
   const cars = await getAll();
   const winners = await getAllWinners();
   createMainView(currentGaragePage, currentWinnersPage);
-  updatePagination(cars, CARS_PER_PAGE, currentGaragePage, "currentGaragePage", "nextGarageButton", "previousGarageButton");
-  updatePagination(winners, WINNERS_PER_PAGE, currentWinnersPage, "currentWinnersPage", "nextWinnersButton", "previousWinnersButton");
+  updatePagination(
+    cars,
+    CARS_PER_PAGE,
+    currentGaragePage,
+    "currentGaragePage",
+    "nextGarageButton",
+    "previousGarageButton"
+  );
+  updatePagination(
+    winners,
+    WINNERS_PER_PAGE,
+    currentWinnersPage,
+    "currentWinnersPage",
+    "nextWinnersButton",
+    "previousWinnersButton"
+  );
 
   const view = getDataFromStorage("view");
   if (view === "winners") {

@@ -5,7 +5,9 @@ const baseUrl = "https://cars-race.vercel.app";
 const cars = `${baseUrl}/garage`;
 
 export const carsState = {
-  cars: [], carsCount: 0, carsByPage: [],
+  cars: [],
+  carsCount: 0,
+  carsByPage: [],
 };
 
 export const getAll = async () => {
@@ -28,7 +30,9 @@ export const getAll = async () => {
 
 export const getAllByPage = async (page) => {
   try {
-    const response = await fetch(`${cars}?_limit=${CARS_PER_PAGE}&_page=${page}`);
+    const response = await fetch(
+      `${cars}?_limit=${CARS_PER_PAGE}&_page=${page}`
+    );
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
@@ -65,7 +69,6 @@ export const addCar = async (data) => {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-
     });
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
@@ -84,7 +87,6 @@ export const deleteCar = async (id) => {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-
     });
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
@@ -103,7 +105,6 @@ export const updateCar = async (id, data) => {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-
     });
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
