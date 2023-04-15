@@ -1,5 +1,5 @@
-import { handleEngine, drive } from './engine';
-import { state } from './winners';
+import { handleEngine, drive } from "./engine";
+import { state } from "./winners";
 
 let resultArray = [];
 const animate = ({ timing, draw, duration }) => {
@@ -12,7 +12,7 @@ const animate = ({ timing, draw, duration }) => {
     draw(progress);
     if (timeFraction < 1) {
       const animationId = requestAnimationFrame(animation);
-      localStorage.setItem('animationId', animationId);
+      localStorage.setItem("animationId", animationId);
     }
   });
   return start;
@@ -34,7 +34,7 @@ export const startCarAnimation = async (id, status) => {
   const car = document.querySelector(`[data-id='${id}']`);
   const startPosition = calculateElementPosition(car);
   const duration = Math.round(data.distance / data.velocity);
-  const flag = document.querySelectorAll('.flag')[0];
+  const flag = document.querySelectorAll(".flag")[0];
   const distance = calculateDistance(flag, car);
 
   const start = animate({
@@ -63,7 +63,7 @@ export const startCarAnimation = async (id, status) => {
       return;
     }
   } catch (error) {
-    const animationId = localStorage.getItem('animationId');
+    const animationId = localStorage.getItem("animationId");
     cancelAnimationFrame(animationId);
     throw new Error(error);
   }
@@ -71,8 +71,8 @@ export const startCarAnimation = async (id, status) => {
 
 export const stopCarAnimation = async (id, status) => {
   const car = document.querySelector(`[data-id='${id}']`);
-  const animationId = localStorage.getItem('animationId');
+  const animationId = localStorage.getItem("animationId");
   window.cancelAnimationFrame(animationId);
-  car.style.left = '150px';
+  car.style.left = "150px";
   await handleEngine(id, status);
 };

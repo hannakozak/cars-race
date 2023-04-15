@@ -1,8 +1,8 @@
-import { WINNERS_PER_PAGE } from '../assets/constants';
+import { WINNERS_PER_PAGE } from "../assets/constants";
 
-const baseUrl = 'https://cars-race.vercel.app';
+const baseUrl = "https://cars-race.vercel.app/winners";
 
-const winners = `${baseUrl}/winners`;
+const winners = `${baseUrl}`;
 
 export const state = {
   winners: [],
@@ -12,13 +12,14 @@ export const state = {
 };
 export const getAllWinners = async () => {
   try {
-    const response = await fetch(`${winners}`);
+    const response = await fetch("https://cars-race.vercel.app/winners");
+
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
     const data = {
       items: await response.json(),
-      count: response.headers.get('X-Total-Count'),
+      count: response.headers.get("X-Total-Count"),
     };
     state.winnersCount = data.items.length;
     state.winners = data.items;
@@ -28,15 +29,24 @@ export const getAllWinners = async () => {
     throw new Error(`Could not get data: ${error}`);
   }
 };
-export const getWinnersByPage = async (page, sortBy, order = 'ASC') => {
+export const getWinnersByPage = async (
+  page = 1,
+  sortBy = "time",
+  order = "ASC"
+) => {
   try {
-    const response = await fetch(`${winners}?_limit=${WINNERS_PER_PAGE}&_page=${page}&_sort=${sortBy}&_order=${order}`);
+    const response = await fetch(
+      `${winners}?_limit=${WINNERS_PER_PAGE}&_page=${page}&_sort=${sortBy}&_order=${order}`,
+      {
+        "Access-Control-Allow-Origin": "http://localhost:8080/",
+      }
+    );
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
     const data = {
       items: await response.json(),
-      count: response.headers.get('X-Total-Count'),
+      count: response.headers.get("X-Total-Count"),
     };
 
     state.winnersByPage = data.items;
@@ -49,12 +59,11 @@ export const getWinnersByPage = async (page, sortBy, order = 'ASC') => {
 export const addWinner = async (data) => {
   try {
     const response = await fetch(`${winners}`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(data),
       headers: {
-        'Content-type': 'application/json; charset=UTF-8',
+        "Content-type": "application/json; charset=UTF-8",
       },
-
     });
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
@@ -69,12 +78,11 @@ export const addWinner = async (data) => {
 export const updateWinner = async (id, data) => {
   try {
     const response = await fetch(`${winners}/${id}`, {
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify(data),
       headers: {
-        'Content-type': 'application/json; charset=UTF-8',
+        "Content-type": "application/json; charset=UTF-8",
       },
-
     });
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
@@ -88,11 +96,10 @@ export const updateWinner = async (id, data) => {
 export const deleteWinner = async (id) => {
   try {
     const response = await fetch(`${winners}/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Content-type': 'application/json; charset=UTF-8',
+        "Content-type": "application/json; charset=UTF-8",
       },
-
     });
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);

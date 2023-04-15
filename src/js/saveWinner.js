@@ -1,6 +1,6 @@
 import {
   addWinner, state, updateWinner,
-} from '../services/winners';
+} from "../services/winners";
 
 export const saveWinner = async () => {
   const savedWinners = state.winners;

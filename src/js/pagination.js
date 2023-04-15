@@ -1,4 +1,4 @@
-import { saveDataToStorage } from './localStorage';
+import { saveDataToStorage } from "./localStorage";
 
 export const nextPage = (data, dataPerPage, currentPage, name, next) => {
   const nextButton = document.querySelector(`.${next}`);
@@ -7,7 +7,7 @@ export const nextPage = (data, dataPerPage, currentPage, name, next) => {
   if (data.items.length > dataPerPage && currentPage < numberOfPages) {
     nextButton.disabled = false;
   }
-  nextButton.addEventListener('click', async () => {
+  nextButton.addEventListener("click", async () => {
     window.location.reload();
     saveDataToStorage(name, currentPage + 1);
   });
@@ -19,7 +19,7 @@ export const previousPage = (data, dataPerPage, currentPage, name, previous) => 
   if (data.items.length > dataPerPage && currentPage > 1) {
     previousButton.disabled = false;
   }
-  previousButton.addEventListener('click', async () => {
+  previousButton.addEventListener("click", async () => {
     window.location.reload();
     saveDataToStorage(name, currentPage - 1);
   });
